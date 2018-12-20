@@ -22,7 +22,7 @@ class AddItem extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="url" placeholder="image url" onChange={this.handleChange('imageUrl')}></input>
           <textarea type="text" placeholder="description" onChange={this.handleChange('description')}></textarea>
-          <input type="submit" value="submit"></input>
+          <br /><input type="submit" value="submit"></input>
         </form>
       </div>
     )
