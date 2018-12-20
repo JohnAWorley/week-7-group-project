@@ -16,6 +16,14 @@ const Nav = (props) => (
         and call this link 'Login / Register' if they are not */}
         {props.user.id ? 'Home' : 'Login / Register'}
       </Link>
+      {/* AddItem Component */}
+      {props.user.id && (
+        <>
+          <Link className="nav-link" to="/additem">
+            Add Item
+          </Link>
+        </>
+      )}
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
