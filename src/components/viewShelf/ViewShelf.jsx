@@ -6,9 +6,20 @@ const mapStateToProps = reduxState => ({
 });
 
 class ViewShelf extends Component {
+    componentDidMount(){
+        this.props.dispatch({
+            type: "FETCH_SHELF"
+        })
+    }
     render(){
+        // let shelfList = this.props .reduxState.shelf.map(item=>{
+        //     return (
+        //         <ShelfItem key={item.id} itemDetail={item} />
+        //     )
+        // })
          return(
-             <h1>hey</h1>
+             <div>hello world
+             </div>
          )
     }
    
