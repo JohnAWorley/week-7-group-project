@@ -14,7 +14,16 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-
+    console.log('in shelf router post');
+    let queryText = 
+        `INSERT INTO "item" ("description", "image_url") 
+        VALUES ($1, $2);`;
+    pool.query(queryText, [req.body.description, req.body.imageURL])
+    .then(result => {
+        res.sendStatus(201);
+    }).catch(error => {
+        res.sendStatus(500);
+    })
 });
 
 
