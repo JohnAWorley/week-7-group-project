@@ -7,5 +7,7 @@ function* addItem(action) {
         console.log('Error adding item:', error);
     }
 }
-
-export default addItem;
+function* addItemWatcher() {
+    yield takeLatest('ADD_ITEM', addItem);
+}
+export default addItemWatcher;
