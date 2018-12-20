@@ -4,6 +4,11 @@ import {Card, CardMedia, CardContent, Button} from '@material-ui/core';
 import './ShelfItem.css'
 
 class ShelfItem extends Component {
+    handleClick = () => {
+        console.log('in delete');
+        
+    }
+
     render(){
         console.log(this.props.itemDetail.image_url)
         return(
@@ -12,7 +17,7 @@ class ShelfItem extends Component {
                 <CardContent>
                     <p>{this.props.itemDetail.description}</p>
                 </CardContent>
-                <Button>DELETE</Button>
+                <Button onClick={this.handleClick}>DELETE</Button>
             </Card>
         )
     }

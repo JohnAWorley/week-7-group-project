@@ -55,17 +55,18 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/info"
-              component={InfoPage}
+              component={ViewShelf}
             />
             <ProtectedRoute
               exact
               path="/additem"
               component={AddItem}
             />
+           
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <ViewShelf />
+          {/* <ViewShelf /> */}
           <Footer />
         </div>
       </Router>
