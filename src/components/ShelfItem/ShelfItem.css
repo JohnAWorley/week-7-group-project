@@ -1,0 +1,9 @@
+.image {
+    height: 150px;
+}
+.card {
+    width: 30%;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
