@@ -1,7 +1,9 @@
 const newItem = (state = {}, action) => {
     switch (action.type) {
-        case 'SET_SHELF':
-            return state;
+        case 'CLEAR_NEW_ITEM':
+            return {};
+        case 'SET_NEW_ITEM':
+            return action.payload;
         default:
             return state;
     }
