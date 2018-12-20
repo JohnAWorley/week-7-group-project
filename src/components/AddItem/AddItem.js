@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button/Button';
 
 class AddItem extends Component {
   handleSubmit = (event) => {
@@ -22,7 +23,7 @@ class AddItem extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="url" placeholder="image url" onChange={this.handleChange('imageUrl')}></input>
           <textarea type="text" placeholder="description" onChange={this.handleChange('description')}></textarea>
-          <br /><input type="submit" value="submit"></input>
+          <br /><Button type="submit" value="submit">Submit</Button>
         </form>
       </div>
     )
