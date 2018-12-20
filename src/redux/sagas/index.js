@@ -15,5 +15,7 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
+    fetchShelf(),
+    addItem(),
   ]);
 }
