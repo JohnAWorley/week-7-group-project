@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ShelfItem from '../ShelfItem/ShelfItem';
+import Count from '../Count/Count';
 
 const mapStateToProps = reduxState => ({
     reduxState, 
@@ -25,6 +26,7 @@ class ViewShelf extends Component {
          return(
              <div>
                  {shelfList}
+                 <Count />
              </div>
          )
     }
