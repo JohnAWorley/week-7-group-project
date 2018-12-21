@@ -1,10 +1,9 @@
 import { put as dispatch, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-// import { call } from 'redux-saga/effects';
 
 function* deleteItem(action) {
     try {
-        console.log(action.payload);
+        console.log('deleteItem saga', action.payload);
         yield axios.delete( `/api/shelf/${action.payload}`);
         yield dispatch({ type: 'FETCH_SHELF'})
     } catch (error) {
@@ -14,4 +13,5 @@ function* deleteItem(action) {
 function* deleteItemWatcher() {
     yield takeLatest('DELETE_ITEM', deleteItem);
 }
+
 export default deleteItemWatcher;

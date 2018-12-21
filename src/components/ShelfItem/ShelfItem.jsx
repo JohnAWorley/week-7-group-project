@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import DeleteConf from '../DeleteConf/DeleteConf';
 import { connect } from 'react-redux';
 import { Card, CardMedia, CardContent, Button, Grid } from '@material-ui/core';
 import './ShelfItem.css'
 
 class ShelfItem extends Component {
     handleClick = (event) => {
-        console.log('in delete', this.props.itemDetail.id);
-        this.props.dispatch({ type: 'DELETE_ITEM', payload: this.props.itemDetail.id })
+        console.log('in delete', this.props.itemDetail.id, this.props.itemDetail.person_id, this.props.store.user.id);
+        if (this.props.itemDetail.person_id !== this.props.store.user.id) {
+            // display confirmation dialog, allow user to delete or not
+            this.props.dispatch({ type: 'SET_ITEM_ID', payload: this.props.itemDetail.id });            
+            this.props.dispatch({ type: 'DIALOG_OPEN' });            
+        } else {
+            // since this is the user's item, just delete
+            this.props.dispatch({ type: 'DELETE_ITEM', payload: this.props.itemDetail.id });
+        }
     }
-
     render() {
-        console.log(this.props.itemDetail)
         return (
+            <div>
             <Grid item xs>
                 <Card className="card">
                     <CardMedia image={this.props.itemDetail.image_url} className="image" />
@@ -21,8 +28,15 @@ class ShelfItem extends Component {
                     <Button onClick={this.handleClick}>DELETE</Button>
                 </Card>
             </Grid>
+            <DeleteConf />
+            </div >
         )
     }
 }
 
-export default connect()(ShelfItem);
+const mapStoreToProps = (store) => {
+    return {
+        store
+    }
+}
+export default connect(mapStoreToProps)(ShelfItem);
