@@ -28,7 +28,9 @@ class ViewShelf extends Component {
          return(
              <Grid container spacing={24}>
                  {shelfList}
+                 <Grid item xs={12}>
                  <Count />
+                 </Grid>
              </Grid>
 
          )
