@@ -67,7 +67,9 @@ router.put('/:id', (req, res) => {
  */
 router.get('/count', (req, res) => {
     queryString = `SELECT "person".username, COUNT("item".person_id) FROM "person"
-    JOIN "item" ON "person".id = "item".person_id GROUP BY "person".username;`
+    LEFT JOIN "item" ON "person".id = "item".person_id 
+    GROUP BY "person".id 
+    ORDER BY "person".id;`
     pool.query(queryString).then(results =>{
       res.send(results.rows)
     }).catch(error =>{
