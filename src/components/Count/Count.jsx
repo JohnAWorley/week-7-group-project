@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 
 
 class Count extends Component {
@@ -11,22 +11,22 @@ class Count extends Component {
   
     return (
       <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Count</th>
-            </tr>
-          </thead>
-          <tbody>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Username</TableCell>
+              <TableCell># of Items</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
         {this.props.reduxStore.count.map((item , i) =>{
-          return(<tr key={i}>
-            <td>{item.username}</td>
-            <td>{item.count}</td>
-          </tr>)
+          return(<TableRow key={i}>
+            <TableCell>{item.username}</TableCell>
+            <TableCell>{item.count}</TableCell>
+          </TableRow>)
         })}
-        </tbody>
-        </table>
+        </TableBody>
+        </Table>
       </div>
     )
     

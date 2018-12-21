@@ -18,7 +18,6 @@ class AddItem extends Component {
   render() {
     return (
       <div>
-        {JSON.stringify(this.props.store.newItem)}
         <form onSubmit={this.handleSubmit}>
           <input type="url" placeholder="image url" onChange={this.handleChange('imageUrl')}></input>
           <textarea type="text" placeholder="description" onChange={this.handleChange('description')}></textarea>
