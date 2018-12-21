@@ -16,7 +16,7 @@ class ViewShelf extends Component {
    
     
     render(){
-        let shelfList = this.props .reduxState.shelf.map(item=>{
+        let shelfList = this.props.reduxState.shelf.map(item=>{
             return (
                 <ShelfItem key={item.id} itemDetail={item} />
             )
