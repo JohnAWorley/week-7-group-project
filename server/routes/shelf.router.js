@@ -66,7 +66,15 @@ router.put('/:id', (req, res) => {
  * they have added to the shelf
  */
 router.get('/count', (req, res) => {
-
+    queryString = `SELECT "person".username, COUNT("item".person_id) FROM "person"
+    JOIN "item" ON "person".id = "item".person_id GROUP BY "person".username;`
+    pool.query(queryString).then(results =>{
+      res.send(results.rows)
+    }).catch(error =>{
+      res.sendStatus(500)
+      console.log('error in get count' , error);
+      
+    })
 });
 
 
