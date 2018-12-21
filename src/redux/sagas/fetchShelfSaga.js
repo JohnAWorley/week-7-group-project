@@ -1,6 +1,6 @@
 import { put as dispatch, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import {call} from 'redux-saga/effects';
+// import {call} from 'redux-saga/effects';
 
 function* fetchShelf(action) {
     try {

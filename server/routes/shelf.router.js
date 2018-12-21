@@ -6,7 +6,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 /**
  * Get all of the items on the shelf
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req,res) => {
     const queryString = `SELECT * FROM "item";`;
     pool.query(queryString)
     .then((result)=>{
@@ -40,7 +40,16 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
-
+    queryString = `DELETE FROM "item" WHERE "id" = $1;`;
+    let id= req.params.id
+    pool.query(queryString, [id])
+        .then(result => {
+            res.sendStatus(201);
+        }).catch(error => {
+            console.log('error in delete item:', error);
+            res.sendStatus(500);
+        })
+    
 });
 
 
