@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ShelfItem from '../ShelfItem/ShelfItem';
 import Count from '../Count/Count';
+import { Grid } from '@material-ui/core';
+
 
 const mapStateToProps = reduxState => ({
     reduxState, 
@@ -17,17 +19,18 @@ class ViewShelf extends Component {
    
     
     render(){
-        let shelfList = this.props .reduxState.shelf.map(item=>{
+        let shelfList = this.props.reduxState.shelf.map(item=>{
             return (
                 <ShelfItem key={item.id} itemDetail={item} />
             )
         })
       
          return(
-             <div>
+             <Grid container spacing={24}>
                  {shelfList}
                  <Count />
-             </div>
+             </Grid>
+
          )
     }
    
