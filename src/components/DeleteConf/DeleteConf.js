@@ -5,11 +5,12 @@ import { Button, Dialog, DialogActions, DialogContentText,
 
 class DeleteConf extends Component {
     handleClose = (choseDelete) => {
-        // this.props.dispatch({ type: 'SET_CHOICE', payload: choseDelete });
         if (choseDelete) {
-            this.props.dispatch({ type: 'DELETE_ITEM' , payload: this.props.reduxStore.confirm.id});
+            this.props.dispatch({ 
+                type: 'DELETE_ITEM', 
+                payload: this.props.reduxStore.confirm.id
+            });
         }
-        // this.props.dispatch({ type: 'SET_CHOICE', payload: true });
         this.props.dispatch({ type: 'DIALOG_CLOSE' });
     }
     render() {
@@ -17,7 +18,7 @@ class DeleteConf extends Component {
                 <div>
                     <Dialog
                         open={this.props.reduxStore.confirm.open}
-                        onClose={this.handleClose}
+                        onClose={() => this.handleClose(false)}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
@@ -38,7 +39,6 @@ class DeleteConf extends Component {
                     </Dialog>
             </div>
         );
-
     }
 }
 const mapStateToProps = (reduxStore) => {

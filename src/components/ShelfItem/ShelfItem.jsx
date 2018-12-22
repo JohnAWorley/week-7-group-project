@@ -6,8 +6,9 @@ import './ShelfItem.css'
 
 class ShelfItem extends Component {
     handleClick = (event) => {
-        console.log('in delete', this.props.itemDetail.id, this.props.itemDetail.person_id, this.props.store.user.id);
-        if (this.props.itemDetail.person_id !== this.props.store.user.id) {
+        const userWhoEnteredItem = this.props.itemDetail.person_id;
+        const userLoggedIn = this.props.store.user.id;
+        if (userWhoEnteredItem !== userLoggedIn) {
             // display confirmation dialog, allow user to delete or not
             this.props.dispatch({ type: 'SET_ITEM_ID', payload: this.props.itemDetail.id });            
             this.props.dispatch({ type: 'DIALOG_OPEN' });            
