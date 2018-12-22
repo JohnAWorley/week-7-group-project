@@ -5,7 +5,8 @@ function* deleteItem(action) {
     try {
         console.log('deleteItem saga', action.payload);
         yield axios.delete( `/api/shelf/${action.payload}`);
-        yield dispatch({ type: 'FETCH_SHELF'})
+        yield dispatch({ type: 'FETCH_SHELF'});
+        yield dispatch({ type: 'FETCH_COUNT'});
     } catch (error) {
         console.log('Error deleting shelf:', error);
     }

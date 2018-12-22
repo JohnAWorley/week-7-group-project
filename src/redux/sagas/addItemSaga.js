@@ -11,6 +11,9 @@ function* addItem(action) {
         yield dispatch({
             type: 'FETCH_SHELF'
         });
+        yield dispatch({
+            type: 'FETCH_COUNT'
+        });
         // dispatch to clear new item reducer
         yield dispatch({
             type: 'CLEAR_NEW_ITEM'

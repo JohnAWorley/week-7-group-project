@@ -16,15 +16,12 @@ class ViewShelf extends Component {
         })
        
     }
-   
-    
     render(){
         let shelfList = this.props.reduxState.shelf.map(item=>{
             return (
                 <ShelfItem key={item.id} itemDetail={item} />
             )
         })
-      
          return(
              <Grid container spacing={24}>
                  {shelfList}
